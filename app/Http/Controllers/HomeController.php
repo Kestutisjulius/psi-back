@@ -13,7 +13,6 @@ class HomeController extends Controller
     }
     
     public function second(){
-      
         return response()->json([
             'message' => 'Thank you.',
         ]);
