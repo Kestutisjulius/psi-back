@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('second', [HomeController::class, 'second'])->name('second');
+//user roles :user, seller, courier, admin
+
+Route::get('/second', [HomeController::class, 'second'])->name('second');
+
+Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('role:user');
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,4 +27,3 @@ Route::get('/', function () {
 
 Auth::routes(['verify'=>true]);
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
