@@ -1,8 +1,8 @@
-function RegPage() {
+function RegPage({roles}) {
   return (
     <main className='form'>
       <div className="square"></div>
-      <img className='form-cover' src={require('../img/form-cover.jpg')} alt="cover-img" />
+      {/* <img className='form-cover' src={require('../img/form-cover.jpg')} alt="cover-img" /> */}
       <h2>Sign Up</h2>
       <div className="reg-form">
         <form action="">
@@ -21,6 +21,11 @@ function RegPage() {
             <a href="#"><i className="fab fa-twitter"></i></a>
             <a href="#"><i className="fab fa-google"></i></a>
             <a href="#"><i className="fab fa-linkedin"></i></a>
+            {/* <select>
+              {
+                roles.map((role, i)=> <option key={i}>{role}</option> )
+              }
+            </select> */}
           </div>
         </div>
       </div>

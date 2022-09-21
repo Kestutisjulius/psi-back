@@ -1,8 +1,11 @@
+import Nav from "@/components/Nav";
+
 function Main() {
   return (
     <>
+    <Nav/>
       <div className="content">
-        <img className='cover' src={require('../img/cover-img.jpg')} alt="cover" />
+        {/* <img className='cover' src={require('../img/cover-img.jpg')} alt="cover" /> */}
         <div className="flex-blocks">
           <div className="block1">
             <h3>what you can sell</h3>
@@ -17,7 +20,7 @@ function Main() {
         </div>
       </div>
       <div className="text">
-        <h2>Lorem ipsum <a href="http://localhost:8001/second"> <bold>SECOND</bold></a> consectetur adipisicing elit. <a href="#">Facere</a>, velit!</h2>
+        <h2>Lorem ipsum <a href="http://localhost:8001/second"> <b>SECOND</b></a> consectetur adipisicing elit. <a href="#">Facere</a>, velit!</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat saepe ut et, esse cum voluptatum architecto quibusdam maiores consequatur aut dolore commodi ex reiciendis natus qui possimus recusandae error quas modi quia, nisi suscipit voluptatem totam alias? Repudiandae eos tempore qui debitis facilis laudantium reiciendis porro molestias, culpa atque nam.</p>
       </div>
     </>

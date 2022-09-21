@@ -12,7 +12,7 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    const roles = (['user', 'seller', 'courier']);
+    const ROLES = ['user', 'seller', 'courier'];
     const admin = (['admin']);
 
     /**
