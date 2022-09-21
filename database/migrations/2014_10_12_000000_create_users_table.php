@@ -31,6 +31,8 @@ return new class extends Migration
             $table->string('photo')->nullable();
             $table->string('degree')->nullable();
             $table->string('work_experience')->nullable();
+            $table->unsignedBigInteger('job_id')->nullable();
+            $table->foreign('job_id')->references('id')->on('jobs')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
