@@ -24,19 +24,20 @@ use App\Http\Controllers\UserController;
 //         'phpVersion' => PHP_VERSION,
 //     ]);
 // });
-Route::get('/', function () {
-         return Inertia::render('Main');
-});
 // Route::get('/reg-page', function () {
 //     return Inertia::render('RegPage');
 // })->name('reg-page');
+    
+// Route::get('/dashboard', function () {
+//         return Inertia::render('Dashboard');
+//     })->middleware(['auth', 'verified'])->name('dashboard');
+        
+// Route::get('reg-page', [UserController::class, 'create'])->name('reg-page');
+        
+Route::get('/', function () {
+            return Inertia::render('Main');
+        });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('reg-page', [UserController::class, 'create'])->name('reg-page');
-
-
+Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
 
 require __DIR__.'/auth.php';

@@ -26,8 +26,7 @@ function Nav() {
               <li>sign up</li>
             </NavLink>
             <li>login</li>
-            <Link
-              to='/logout' className='none'>
+            <Link href={route('logout')} className='none'>
               <li>Logout</li>
             </Link>
           </ul>
