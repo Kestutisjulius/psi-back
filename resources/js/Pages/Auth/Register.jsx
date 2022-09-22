@@ -5,6 +5,7 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
+import SocLinks from './SocLinks';
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -100,7 +101,7 @@ export default function Register() {
                     </div>
                     <div className="btn">
                         <PrimaryButton processing={processing}>
-                            Sign up 
+                            Sign up
                         </PrimaryButton>
 
                         <div className="flex items-center justify-end mt-4">
@@ -116,6 +117,7 @@ export default function Register() {
                     <div className="or">or</div>
                     <p>Sign up with social platforms</p>
                     <div className="icons">
+                        <SocLinks />
                         <a href="#"><i className="fab fa-facebook-f"></i></a>
                         <a href="#"><i className="fab fa-twitter"></i></a>
                         <a href="#"><i className="fab fa-google"></i></a>
