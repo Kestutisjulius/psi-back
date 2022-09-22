@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Inertia\Inertia;
 
 class UserController extends Controller
 {
@@ -24,9 +25,10 @@ class UserController extends Controller
     }
     public function create()
     {
-        return response()->json([
-            'roles' => User::roles,
-        ]);
+        return Inertia::render('RegPage', ['roles' => User::ROLES]);
+        // response()->json([
+        //     'roles' => User::roles,
+        // ]);
     }
 
 }
