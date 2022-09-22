@@ -22,7 +22,7 @@ function Nav() {
         <li>jobs</li>
         <li className='dropdown'>account
           <ul className='dropdown-content'>
-            <NavLink href={route('reg-page')} className='none' style={({ isActive }) => (isActive ? { color: '#ff6e6e' } : null)} >
+            <NavLink href={route('register')} className='none' style={({ isActive }) => (isActive ? { color: '#ff6e6e' } : null)} >
               <li>sign up</li>
             </NavLink>
             <li>login</li>

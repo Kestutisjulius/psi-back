@@ -5,7 +5,6 @@ function Main() {
     <>
     <Nav/>
       <div className="content">
-        {/* <img className='cover' src={require('../img/cover-img.jpg')} alt="cover" /> */}
         <div className="flex-blocks">
           <div className="block1">
             <h3>what you can sell</h3>

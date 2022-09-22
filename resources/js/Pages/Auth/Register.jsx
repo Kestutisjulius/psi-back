@@ -31,84 +31,99 @@ export default function Register() {
     };
 
     return (
-        <GuestLayout>
+        // <GuestLayout>
+
+        <main className='form'>
             <Head title="Register" />
+            <div className="square"></div>
+            <h2>Sign Up</h2>
+            <div className="reg-form">
+                <form onSubmit={submit}>
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="text"
+                            name="name"
+                            value={data.name}
+                            className="form-input"
+                            autoComplete="name"
+                            isFocused={true}
+                            handleChange={onHandleChange}
+                            placeholder="name"
+                            required
+                        />
+                        <InputError message={errors.name} className="mt-2" />
+                    </div>
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel forInput="name" value="Name" />
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="email"
+                            name="email"
+                            value={data.email}
+                            className="form-input"
+                            autoComplete="username"
+                            handleChange={onHandleChange}
+                            placeholder="Email"
+                            required
+                        />
+                        <InputError message={errors.email} className="mt-2" />
+                    </div>
 
-                    <TextInput
-                        type="text"
-                        name="name"
-                        value={data.name}
-                        className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                        required
-                    />
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            className="form-input"
+                            autoComplete="new-password"
+                            handleChange={onHandleChange}
+                            placeholder="Password"
+                            required
+                        />
+                        <InputError message={errors.password} className="mt-2" />
+                    </div>
 
-                    <InputError message={errors.name} className="mt-2" />
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="password"
+                            name="password_confirmation"
+                            value={data.password_confirmation}
+                            className="form-input"
+                            handleChange={onHandleChange}
+                            placeholder="Confirm Password"
+                            required
+                        />
+                        <InputError message={errors.password_confirmation} className="mt-2" />
+                    </div>
+                    <div className="btn">
+                        <PrimaryButton processing={processing}>
+                            Sign up 
+                        </PrimaryButton>
+
+                        <div className="flex items-center justify-end mt-4">
+                            Already have an account?
+                            <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
+                                Login
+                            </Link>
+
+                        </div>
+                    </div>
+                </form>
+                <div className="soc-icons">
+                    <div className="or">or</div>
+                    <p>Sign up with social platforms</p>
+                    <div className="icons">
+                        <a href="#"><i className="fab fa-facebook-f"></i></a>
+                        <a href="#"><i className="fab fa-twitter"></i></a>
+                        <a href="#"><i className="fab fa-google"></i></a>
+                        <a href="#"><i className="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
-
-                <div className="mt-4">
-                    <InputLabel forInput="email" value="Email" />
-
-                    <TextInput
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        handleChange={onHandleChange}
-                        required
-                    />
-
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel forInput="password" value="Password" />
-
-                    <TextInput
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="new-password"
-                        handleChange={onHandleChange}
-                        required
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel forInput="password_confirmation" value="Confirm Password" />
-
-                    <TextInput
-                        type="password"
-                        name="password_confirmation"
-                        value={data.password_confirmation}
-                        className="mt-1 block w-full"
-                        handleChange={onHandleChange}
-                        required
-                    />
-
-                    <InputError message={errors.password_confirmation} className="mt-2" />
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    <Link href={route('login')} className="underline text-sm text-gray-600 hover:text-gray-900">
-                        Already registered?
-                    </Link>
-
-                    <PrimaryButton className="ml-4" processing={processing}>
-                        Register
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+            </div>
+        </main>
+        // {/* </GuestLayout> */}
     );
 }

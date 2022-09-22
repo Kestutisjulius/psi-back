@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 body,
 body * {
   margin: 0;
@@ -172,6 +176,7 @@ main.form {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #bb336ea0;
   background: url('./img/form-cover.jpg') center/cover no-repeat;
 }
 .square {
@@ -182,6 +187,7 @@ main.form {
 }
 .reg-form {
   position: absolute;
+  top:117px;
   background-color: #205d79f8;
   padding: 20px 30px;
   border-radius: 20px;
@@ -201,7 +207,7 @@ form span {
 }
 .form h2 {
   position: absolute;
-  font-size: 77px;
+  font-size: 74px;
   font-weight: 500;
   color: #eaeaea;
   font-variant: small-caps;
@@ -209,22 +215,23 @@ form span {
   z-index: 333;
   transform: translateY(-300px);
 }
-form input {
+.form-input{
   font-size: 18px;
   font-variant: small-caps;
   background-color: transparent;
   color: #eaeaea;
   border: none;
+  border-radius: 0;
   outline: none;
   border-bottom: 1px solid #eaeaea;
   width: 100%;
   padding: 10px;
-  margin: 10px;
+  margin: 2px;
 }
-form input::placeholder {
+.form-input::placeholder {
   color: #eaeaea;
 }
-form input:focus-visible {
+.form-input::focus-visible {
   background-color: #568ba9;
   border-radius: 20px;
   border: none;
