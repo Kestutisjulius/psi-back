@@ -198,7 +198,7 @@ main {
     position: relative;
     height: fit-content;
     background-color: #205d79f8;
-    padding: 20px 30px 0 30px;
+    padding: 15px 30px 0 30px;
     border-radius: 20px;
     align-items: flex-start;
     z-index: 222;
@@ -220,6 +220,7 @@ form span {
     color: #eaeaea;
     font-variant: small-caps;
     text-align: center;
+    margin-bottom: 0;
 }
 .form-input,
 .role {
@@ -237,7 +238,8 @@ form span {
 }
 .role {
     border-bottom: none;
-    margin-left: -12px;
+    margin-left: -3px;
+    padding: 0;
 }
 .role:hover option {
     background-color: #568ba9;
@@ -329,7 +331,7 @@ form a:hover {
 }
 .icons {
     display: flex;
-    margin: 25px auto;
+    margin: 20px auto;
     width: 60%;
     justify-content: space-between;
 }
@@ -380,8 +382,14 @@ form a:hover {
         max-width: 95%;
         font-size: 90%;
     }
-    form button {
-        padding: 8px 15px;
+    div.btn {
+        padding: 0;
+    }
+    .btn button,
+    div.btn a,
+    .btn p {
+        padding: 4px 7px;
+        font-size: 14px;
     }
     .form {
         width: 95%;

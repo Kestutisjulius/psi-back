@@ -3,7 +3,7 @@ import Nav from "@/components/Nav";
 function Main() {
   return (
     <>
-    <Nav/>
+      <Nav />
       <div className="content">
         <div className="flex-blocks">
           <div className="block1">
