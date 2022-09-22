@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import Dropdown from '@/Components/Dropdown';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
@@ -6,12 +7,13 @@ import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/inertia-react';
 
-export default function Register() {
+export default function Register({ roles }) {
     const { data, setData, post, processing, errors, reset } = useForm({
         name: '',
         email: '',
         password: '',
         password_confirmation: '',
+        role: ''
     });
 
     useEffect(() => {
@@ -72,6 +74,18 @@ export default function Register() {
 
                     <div>
                         <span></span>
+                        <div class="form-input">
+                        <label for="role" >Choose role:</label>
+                        <select name="role" id="role">
+                            {
+                                roles.map((role, i) => <option key={i} value={i}>{role}</option>)
+                            }
+                        </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span></span>
                         <TextInput
                             type="password"
                             name="password"
@@ -98,9 +112,10 @@ export default function Register() {
                         />
                         <InputError message={errors.password_confirmation} className="mt-2" />
                     </div>
+
                     <div className="btn">
                         <PrimaryButton processing={processing}>
-                            Sign up 
+                            Sign up
                         </PrimaryButton>
 
                         <div className="flex items-center justify-end mt-4">

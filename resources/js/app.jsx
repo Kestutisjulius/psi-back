@@ -1,5 +1,5 @@
 import './bootstrap';
-import '../sass/app.css';
+import '../css/app.css';
 import '../sass/app.scss';
 
 import React from 'react';

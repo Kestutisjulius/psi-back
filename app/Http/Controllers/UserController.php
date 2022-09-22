@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
+use Auth;
 
 class UserController extends Controller
 {
@@ -23,10 +24,17 @@ class UserController extends Controller
             'users'=>$users, 'msg'=>$msg
         ]);
     }
-    public function create()
-    {
-        return Inertia::render('RegPage', ['roles' => User::ROLES,
-                                            'publicUrl'=> asset('img')]);
+    // public function create()
+    // {
+    //     return Inertia::render('RegPage', ['roles' => User::ROLES]);
+    // }
+    public function profile(){
+       $id = Auth::user()->id;
+       
+       $user = User::where('id', $id)
+                    ->first();
+
+        return Inertia::render('Profile', ['user' => $user]);
     }
 
 }
