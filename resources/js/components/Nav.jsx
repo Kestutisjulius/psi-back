@@ -1,6 +1,6 @@
-import { Link } from '@inertiajs/inertia-react';
 // import route from 'vendor/tightenco/ziggy/src/js';
 import NavLink from './NavLink';
+import ResponsiveNavLink from './ResponsiveNavLink';
 
 // import { Link, NavLink } from 'react-router-dom';
 function Nav() {
@@ -25,10 +25,12 @@ function Nav() {
             <NavLink href={route('register')} className='none' style={({ isActive }) => (isActive ? { color: '#ff6e6e' } : null)} >
               <li>sign up</li>
             </NavLink>
+            <NavLink href={route('login')} className='none'>
             <li>login</li>
-            <Link href={route('logout')} className='none'>
+            </NavLink>
+            <ResponsiveNavLink href={route('logout')} method="post"className='none'>
               <li>Logout</li>
-            </Link>
+              </ResponsiveNavLink>
           </ul>
         </li>
         <li>en</li>

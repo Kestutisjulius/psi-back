@@ -41,6 +41,7 @@ export default function Register({ roles }) {
             <h2>Sign Up</h2>
             <div className="reg-form">
                 <form onSubmit={submit}>
+
                     <div>
                         <span></span>
                         <TextInput
@@ -51,7 +52,7 @@ export default function Register({ roles }) {
                             autoComplete="name"
                             isFocused={true}
                             handleChange={onHandleChange}
-                            placeholder="name"
+                            placeholder="Name"
                             required
                         />
                         <InputError message={errors.name} className="mt-2" />
