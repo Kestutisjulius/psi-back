@@ -46,5 +46,9 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function job(){
+        return $this->belongsTo(Job::class, 'job_id', 'id');
+    }
+
 
 }

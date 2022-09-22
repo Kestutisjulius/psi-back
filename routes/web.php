@@ -38,4 +38,5 @@ Route::get('/dashboard', function () {
 Route::get('reg-page', [UserController::class, 'create'])->name('reg-page');
 
 
+
 require __DIR__.'/auth.php';
