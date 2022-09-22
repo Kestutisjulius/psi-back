@@ -38,6 +38,7 @@ Route::get('/', function () {
             return Inertia::render('Main');
         });
 
-Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
+// Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
+Route::get('/user', [UserController::class, 'profile'])->name('user-profile');
 
 require __DIR__.'/auth.php';

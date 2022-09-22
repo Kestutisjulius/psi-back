@@ -34,6 +34,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        //cia turetu grazinti role
         dump($request->all());
         $request->validate([
             'name' => 'required|string|max:255',
