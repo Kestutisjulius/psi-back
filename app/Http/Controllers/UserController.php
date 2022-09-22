@@ -25,10 +25,8 @@ class UserController extends Controller
     }
     public function create()
     {
-        return Inertia::render('RegPage', ['roles' => User::ROLES]);
-        // response()->json([
-        //     'roles' => User::roles,
-        // ]);
+        return Inertia::render('RegPage', ['roles' => User::ROLES,
+                                            'publicUrl'=> asset('img')]);
     }
 
 }

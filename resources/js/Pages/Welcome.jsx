@@ -3,7 +3,6 @@ import { Link, Head } from '@inertiajs/inertia-react';
 
 export default function Welcome(props) {
     return (
-
         <>
             <Head title="Welcome" />
             <div className="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -14,7 +13,7 @@ export default function Welcome(props) {
                         </Link>
                     ) : (
                         <>
-                            <Link href={route('login')} className="text-sm text-gray-700 dark:text-gray-500 underline">
+                            <Link href={route('login')} method="get"className="text-sm text-gray-700 dark:text-gray-500 underline">
                                 Log in
                             </Link>
 
