@@ -10,7 +10,7 @@ body * {
     box-sizing: border-box;
 }
 
-body {
+body.font-sans {
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
     background-color: #d8edf0;
@@ -30,8 +30,7 @@ body {
     margin-bottom: 20px;
     color: #849299;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    min-height: 60px;
-    padding: 0 10px;
+    padding: 0 5px;
 }
 .nav-links {
     width: 100%;
@@ -45,17 +44,19 @@ body {
     font-weight: bold;
     font-family: cursive;
     font-variant: small-caps;
-    padding: 0 4%;
+    padding: 0 5%;
+    margin-bottom: 0;
 }
 .nav-links li {
+    height: 55px;
     display: flex;
     align-items: center;
-    height: 60px;
-    padding: 0 10px;
+    padding: 0 8px;
 }
-.none {
+.focused {
     text-decoration: none;
     justify-self: center;
+    color: #ff6e6e;
 }
 .nav-links li:hover {
     cursor: pointer;
@@ -74,7 +75,8 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 60px;
+    top: 55px;
+    left: 45px;
     background-color: #dff5f3;
     min-width: 130px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -83,6 +85,7 @@ body {
 }
 .dropdown-content li {
     padding: 12px 16px;
+    height: 45px;
     text-decoration: none;
     display: flex;
     text-align: left;
@@ -108,6 +111,7 @@ body {
     align-items: center;
     width: 90%;
     margin: auto;
+    padding-top: 10px;
 }
 img.cover {
     width: 100%;
@@ -133,6 +137,8 @@ img.cover {
 }
 .flex-blocks h3 {
     width: 100%;
+    margin: 0;
+    padding: 5px;
     font-variant: small-caps;
     font-family: cursive;
 }
@@ -190,8 +196,8 @@ main {
 }
 .square {
     position: absolute;
-    border-right: 100vw solid #f092bb76;
-    border-bottom: 100vh solid #3a7fb442;
+    border-right: 100vw solid #e99ebe76;
+    border-bottom: 100vh solid #d8edf07a;
     z-index: 111;
 }
 .reg-form {
@@ -305,10 +311,11 @@ form a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 30px;
     width: 50px;
     height: 50px;
     margin: auto;
-    background-color: #dab9c7f2;
+    background-color: #dab9c7fe;
     font-size: 28px;
     font-weight: bold;
     font-variant: small-caps;
@@ -356,10 +363,12 @@ form a:hover {
     }
     .flex-blocks {
         flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
         margin: 10px 0 0 0;
     }
     .flex-blocks * {
-        width: 33%;
+        width: 32%;
         margin-left: 0;
     }
     img.form-cover {
@@ -369,6 +378,9 @@ form a:hover {
 @media screen and (max-width: 800px) {
     img.form-cover {
         width: 85%;
+    }
+    .flex-blocks * {
+        width: 48%;
     }
 }
 @media screen and (max-width: 620px) {
@@ -393,5 +405,8 @@ form a:hover {
     }
     .form {
         width: 95%;
+    }
+    .flex-blocks * {
+        width: 100%;
     }
 }
