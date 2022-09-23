@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Dropdown from '@/Components/Dropdown';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
@@ -13,7 +13,7 @@ export default function Register({ roles }) {
         email: '',
         password: '',
         password_confirmation: '',
-        role: ''
+        role: '1',
     });
 
     useEffect(() => {
@@ -21,10 +21,12 @@ export default function Register({ roles }) {
             reset('password', 'password_confirmation');
         };
     }, []);
+   
 
     const onHandleChange = (event) => {
-        setData(event.target.name, event.target.type === 'checkbox' ? event.target.checked : event.target.value);
+        setData(event.target.name, event.target.value);
     };
+   
 
     const submit = (e) => {
         e.preventDefault();
@@ -77,9 +79,9 @@ export default function Register({ roles }) {
                         <span></span>
                         <div class="form-input">
                         <label for="role" >Choose role:</label>
-                        <select name="role" id="role">
+                        <select name="role" id="role"  value={data.role}  onChange={onHandleChange}>
                             {
-                                roles.map((role, i) => <option key={i} value={i}>{role}</option>)
+                                roles.map((role, i) => <option key={i} value={i + 1} >{role}</option>)
                             }
                         </select>
                         </div>
