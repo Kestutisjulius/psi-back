@@ -77,7 +77,7 @@ export default function Register({ roles }) {
 
                     <div>
                         <span></span>
-                        <div class="form-input">
+                        <div className="form-input">
                         <label for="role" >Choose role:</label>
                         <select name="role" id="role"  value={data.role}  onChange={onHandleChange}>
                             {
