@@ -37,6 +37,9 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
             return Inertia::render('Main');
         });
+Route::get('/profile', function () {
+            return Inertia::render('Profile');
+        });
 
 // Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
 Route::get('/user', [UserController::class, 'profile'])->name('user-profile');

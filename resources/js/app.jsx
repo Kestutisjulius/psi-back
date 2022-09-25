@@ -1,6 +1,11 @@
 import './bootstrap';
-import '../css/app.css';
 import '../sass/app.scss';
+// STYLING CSS
+import '../css/app.css';
+import '../css/main.css';
+import '../css/media.css';
+import '../css/register.css';
+import '../css/profile.css';
 
 import React from 'react';
 import { render } from 'react-dom';
