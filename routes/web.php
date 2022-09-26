@@ -33,7 +33,8 @@ use App\Http\Controllers\UserController;
         // })->middleware(['auth', 'verified'])->name('dashboard');
         
         // Route::get('reg-page', [UserController::class, 'create'])->name('reg-page');
-        
+
+Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
 Route::get('/', function () {
             return Inertia::render('Main');
         });
