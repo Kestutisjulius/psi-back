@@ -6,10 +6,10 @@ use Inertia\Inertia;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
-            return Inertia::render('Main')
+            return Inertia::render('Main');
              })->name('main');
 
-        });
+ 
 Route::get('/profile', function () {
             return Inertia::render('Profile');
         });
