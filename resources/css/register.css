@@ -14,12 +14,15 @@ main {
     align-items: center;
     background: url("./img/form-cover.jpg") center/cover no-repeat;
     border-radius: 15px;
+    padding-top: 20px;
+    margin:40px auto;
 }
 .square {
     position: absolute;
     border-right: 100vw solid #e99ebe76;
     border-bottom: 100vh solid #d8edf07a;
     z-index: 111;
+    
 }
 .reg-form {
     position: relative;
