@@ -1,29 +1,61 @@
+import SvgArrowDown from "@/components/SvgArrowDown";
+import SvgBilling from "@/components/SvgBilling";
+import SvgDashboard from "@/components/SvgDashboard";
+import SvgMark from "@/components/SvgMark";
+import SvgNotifications from "@/components/SvgNotifications";
+import SvgPortfolio from "@/components/SvgPortfolio";
+import SvgProfile from "@/components/SvgProfile";
+import SvgSearch from "@/components/SvgSearcj";
+import SvgSettings from "@/components/SvgSettings";
+import SvgUser from "@/components/SvgUser";
 
 function Profile({ user }) {
   return (
     <div className="prof-flex">
       <div className="prof-nav">
         <p>KristianWorkSpace</p>
-        <svg>
-          {/* <use xlink:href="#profile-pic" id=" /> */}
-        </svg>
+        <div className="svg">
+          <SvgUser className='user' />
+        </div>
         <ul>
-          <li>Dashboard</li>
-          <li>Profile</li>
-          <li>Job feed</li>
-          <li>Save Jobs</li>
-          <li>Account Settings</li>
+          <li><span>
+            <SvgDashboard className='menu' />
+          </span> Dashboard</li>
+          <li><span>
+            <SvgProfile className='menu' />
+          </span> Profile</li>
+          <li><span>
+            <SvgPortfolio className='menu' />
+          </span> Job feed</li>
+          <li><span>
+            <SvgMark className='menu' />
+          </span> Save Jobs</li>
+          <li><span>
+            <SvgSettings className='menu' />
+          </span> Account Settings</li>
+          <li className="billing"><span>
+            <SvgBilling className='menu' />
+          </span>Billing</li>
         </ul>
       </div>
       <div className="prof-info">
         <div className="top-row">
           <div className="search">
-            <input type="search" name="search" id="search" />
-            <button>search</button>
+            <input type="search" name="search" id="search" placeholder="Search" />
+            <button>
+              <SvgSearch className='menu' />
+            </button>
           </div>
           <div className="top-right">
+            <div className="notific">
+              <span className="active"></span>
+              <SvgNotifications className='menu' />
+            </div>
             <img src="./img/Cristian.jpg" alt="photo" />
             <p>User</p>
+            <div className="arrow-down">
+              <SvgArrowDown className='menu' />
+            </div>
           </div>
         </div>
         <div className="top-heading">

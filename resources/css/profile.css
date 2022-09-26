@@ -22,7 +22,16 @@
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 15px;
+}
+ul li {
+    line-height: 18px;
+}
+ul li:hover {
+    color: #555;
+    fill: #aaa;
+    cursor: pointer;
+    text-decoration: underline;
 }
 .prof-info {
     display: flex;
@@ -34,6 +43,7 @@
     padding-left: 20px;
 }
 .top-row {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -96,6 +106,9 @@ textarea {
     resize: none;
     padding: 0 5px;
 }
+.search input {
+    width: 100%;
+}
 input:focus-visible,
 textarea:focus-visible {
     border: 3px solid #006dc05a;
@@ -157,4 +170,56 @@ textarea {
 }
 .btns button:last-child:hover {
     background-color: #e1e4ec;
+}
+
+.svg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.user {
+    fill: #006dc0;
+    width: 100px;
+    margin-bottom: 20px;
+}
+.menu {
+    width: 18px;
+    margin-right: 3px;
+}
+.billing .menu {
+    width: 23px;
+    margin-left: -3px;
+}
+.menu:hover {
+    fill: #777;
+    cursor: pointer;
+}
+.search button {
+    position: absolute;
+    left: 130px;
+    background-color: transparent;
+    border: none;
+}
+.search button:hover {
+    background-color: transparent;
+}
+.search button:hover svg.menu {
+    transform: scale(1.3);
+    fill: #006dc0;
+}
+.top-right svg {
+    width: 20px;
+    fill: #aaa;
+}
+.notific {
+    position: relative;
+}
+.notific .active {
+    position: absolute;
+    left: 12px;
+    bottom: 18px;
+    background-color: #0baf0b;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
 }
