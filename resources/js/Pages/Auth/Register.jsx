@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
-import Dropdown from "@/Components/Dropdown";
-import GuestLayout from "@/Layouts/GuestLayout";
-import InputError from "@/Components/InputError";
-import InputLabel from "@/Components/InputLabel";
-import PrimaryButton from "@/Components/PrimaryButton";
-import TextInput from "@/Components/TextInput";
-import { Head, Link, useForm } from "@inertiajs/inertia-react";
+
+import React, { useEffect, useState } from 'react';
+import Dropdown from '@/Components/Dropdown';
+import GuestLayout from '@/Layouts/GuestLayout';
+import InputError from '@/Components/InputError';
+import InputLabel from '@/Components/InputLabel';
+import PrimaryButton from '@/Components/PrimaryButton';
+import TextInput from '@/Components/TextInput';
+import { Head, Link, useForm } from '@inertiajs/inertia-react';
 import SocLinks from "./SocLinks";
 
 export default function Register({ roles }) {
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-        role: "",
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        role: '1',
     });
 
     useEffect(() => {
@@ -22,8 +23,10 @@ export default function Register({ roles }) {
             reset("password", "password_confirmation");
         };
     }, []);
+   
 
     const onHandleChange = (event) => {
+
         setData(
             event.target.name,
             event.target.type === "checkbox"
@@ -31,6 +34,7 @@ export default function Register({ roles }) {
                 : event.target.value
         );
     };
+   
 
     const submit = (e) => {
         e.preventDefault();
@@ -40,43 +44,53 @@ export default function Register({ roles }) {
 
     return (
         // <GuestLayout>
+        <main className='form'>
+            <Head title="Register" />
+            <div className="square"></div>  
+            <div className="reg-form">
+                <form onSubmit={submit}>
+                    <h2>Sign Up</h2>
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="text"
+                            name="name"
+                            value={data.name}
+                            className="form-input"
+                            autoComplete="name"
+                            isFocused={true}
+                            handleChange={onHandleChange}
+                            placeholder="Name"
+                            required
+                        />
+                        <InputError message={errors.name} className="mt-2" />
+                    </div>
 
-        <main>
-            <div className="form">
-                <Head title="Register" />
-                <div className="square"></div>
-                <div className="reg-form">
-                    <form onSubmit={submit}>
-                        <h2>Sign Up</h2>
-                        <div>
-                            <span></span>
-                            <TextInput
-                                type="text"
-                                name="name"
-                                value={data.name}
-                                className="form-input"
-                                autoComplete="name"
-                                isFocused={true}
-                                handleChange={onHandleChange}
-                                placeholder="name"
-                                required
-                            />
-                            <InputError message={errors.name} className="mt-2" />
-                        </div>
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="email"
+                            name="email"
+                            value={data.email}
+                            className="form-input"
+                            autoComplete="username"
+                            handleChange={onHandleChange}
+                            placeholder="Email"
+                            required
+                        />
+                        <InputError message={errors.email} className="mt-2" />
+                    </div>
 
-                        <div>
-                            <span></span>
-                            <TextInput
-                                type="email"
-                                name="email"
-                                value={data.email}
-                                className="form-input"
-                                autoComplete="username"
-                                handleChange={onHandleChange}
-                                placeholder="Email"
-                                required
-                            />
-                            <InputError message={errors.email} className="mt-2" />
+                    <div>
+                        <span></span>
+                        <div className="form-input">
+                        <label for="role" >Choose role:</label>
+                        <select name="role" id="role"  value={data.role}  onChange={onHandleChange}>
+                            {
+                                roles.map((role, i) => <option key={i} value={i + 1} >{role}</option>)
+                            }
+                        </select>
+
                         </div>
 
                         <div>

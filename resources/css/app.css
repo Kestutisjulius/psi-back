@@ -375,6 +375,9 @@ form a:hover {
         width: 70%;
     }
 }
+.unbutton{
+    background-color: transparent !important;
+}
 @media screen and (max-width: 800px) {
     img.form-cover {
         width: 85%;

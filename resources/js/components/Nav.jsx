@@ -1,6 +1,6 @@
-import { Link } from '@inertiajs/inertia-react';
 // import route from 'vendor/tightenco/ziggy/src/js';
 import NavLink from './NavLink';
+import ResponsiveNavLink from './ResponsiveNavLink';
 
 function Nav() {
   return (
@@ -18,13 +18,15 @@ function Nav() {
         <li>jobs</li>
         <li className='dropdown'>account
           <ul className='dropdown-content'>
-            <NavLink href={route('register')}>
+            <NavLink href={route('register')} className='focused'>
               <li>sign up</li>
             </NavLink>
+            <NavLink href={route('login')} className='focused'>
             <li>login</li>
-            <Link href={route('logout')} className='focused'>
+            </NavLink>
+            <ResponsiveNavLink href={route('logout')} method="post" className='focused'>
               <li>Logout</li>
-            </Link>
+              </ResponsiveNavLink>
           </ul>
         </li>
         <li>en</li>
