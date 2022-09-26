@@ -59,6 +59,7 @@ body.font-sans {
     color: #ff6e6e;
 }
 .nav-links li:hover {
+    text-decoration: none;
     cursor: pointer;
     padding: 0 10px;
     background-color: #c8e2ea;

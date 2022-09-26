@@ -22,11 +22,11 @@ function Nav() {
               <li>sign up</li>
             </NavLink>
             <NavLink href={route('login')} className='focused'>
-            <li>login</li>
+              <li>login</li>
             </NavLink>
             <ResponsiveNavLink href={route('logout')} method="post" className='focused'>
               <li>Logout</li>
-              </ResponsiveNavLink>
+            </ResponsiveNavLink>
           </ul>
         </li>
         <li>en</li>
