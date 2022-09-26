@@ -31,66 +31,74 @@ export default function Login({ status, canResetPassword }) {
     };
 
     return (
-        <GuestLayout>
-            <Head title="Log in" />
+        <main className='form'>
+            <Head title="Register" />
+            <div className="square"></div>
+            <h2>Login</h2>
+            <div className="reg-form">
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
+                <form onSubmit={submit}>
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="text"
+                            name="email"
+                            value={data.email}
+                            className="form-input"
+                            autoComplete="username"
+                            placeholder="Name"
+                            isFocused={true}
+                            handleChange={onHandleChange}
+                        />
+                        <InputError message={errors.email} className="mt-2" />
+                    </div>
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel forInput="email" value="Email" />
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            className="form-input"
+                            placeholder="password"
+                            autoComplete="current-password"
+                            handleChange={onHandleChange}
+                        />
 
-                    <TextInput
-                        type="text"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        handleChange={onHandleChange}
-                    />
+                        <InputError message={errors.password} className="mt-2" />
+                    </div>
 
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
+                    <div className="mt-4">
+                        <label className="d-flex">
+                            <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
 
-                <div className="mt-4">
-                    <InputLabel forInput="password" value="Password" />
+                            <div>Remember me</div>
+                        </label>
+                    </div>
 
-                    <TextInput
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        handleChange={onHandleChange}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox name="remember" value={data.remember} handleChange={onHandleChange} />
-
-                        <span className="ml-2 text-sm text-gray-600">Remember me</span>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <PrimaryButton className="ml-4" processing={processing}>
-                        Log in
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+                    <div className="btn">
+                        <PrimaryButton processing={processing}>
+                            Log in
+                        </PrimaryButton>
+                    </div>
+                    <div className="btn">
+                        <p>Forgot your password?</p>
+                        {canResetPassword && (
+                            <Link
+                                href={route('password.request')}
+                            >Send to email
+                            </Link>
+                        )}
+                    </div>
+                    <div className="btn">
+                        <p>Dont have an account?</p>
+                        <Link href={route('register')}>Register</Link>
+                    </div>
+                    <div className="btn">
+                        <Link className="unbutton" href={route('main')}>Back to main page</Link>
+                    </div>
+                </form>
+            </div>
+        </main>
     );
 }
