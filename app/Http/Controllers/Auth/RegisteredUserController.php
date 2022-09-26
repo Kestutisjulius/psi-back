@@ -34,17 +34,18 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
-        //cia turetu grazinti role
-        dump($request->all());
+   
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
+            'role'=> 'required|int|min:1|max:3',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => Hash::make($request->password),
         ]);
 

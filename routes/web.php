@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\UserController;
+<<<<<<< HEAD
 
 /*
 |--------------------------------------------------------------------------
@@ -35,9 +36,15 @@ use App\Http\Controllers\UserController;
         // Route::get('reg-page', [UserController::class, 'create'])->name('reg-page');
 
 Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
+=======
+        
+>>>>>>> 9a0e8ee3a5d755a05aa46abcbea98e9ed2fd33b7
 Route::get('/', function () {
             return Inertia::render('Main');
-        });
+        })->name('main');
+
+
+Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
 
 
 require __DIR__.'/auth.php';
