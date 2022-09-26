@@ -23,7 +23,7 @@ export default function Register({ roles }) {
             reset("password", "password_confirmation");
         };
     }, []);
-   
+
 
     const onHandleChange = (event) => {
 
@@ -34,7 +34,7 @@ export default function Register({ roles }) {
                 : event.target.value
         );
     };
-   
+
 
     const submit = (e) => {
         e.preventDefault();
@@ -46,7 +46,7 @@ export default function Register({ roles }) {
         // <GuestLayout>
         <main className='form'>
             <Head title="Register" />
-            <div className="square"></div>  
+            <div className="square"></div>
             <div className="reg-form">
                 <form onSubmit={submit}>
                     <h2>Sign Up</h2>
@@ -84,98 +84,98 @@ export default function Register({ roles }) {
                     <div>
                         <span></span>
                         <div className="form-input">
-                        <label for="role" >Choose role:</label>
-                        <select name="role" id="role"  value={data.role}  onChange={onHandleChange}>
-                            {
-                                roles.map((role, i) => <option key={i} value={i + 1} >{role}</option>)
-                            }
-                        </select>
+                            <label for="role" >Choose role:</label>
+                            <select name="role" id="role" value={data.role} onChange={onHandleChange}>
+                                {
+                                    roles.map((role, i) => <option key={i} value={i + 1} >{role}</option>)
+                                }
+                            </select>
 
                         </div>
+                    </div>
+                    <div>
+                        <span></span>
+                        <div class="form-input">
+                            <label className="role" for="role">Choose role:</label>
+                            <select className="role" name="role" id="role">
+                                {roles.map((role, i) => (
+                                    <option key={i} value={i}>
+                                        {role}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
 
-                        <div>
-                            <span></span>
-                            <div class="form-input">
-                                <label className="role" for="role">Choose role:</label>
-                                <select className="role" name="role" id="role">
-                                    {roles.map((role, i) => (
-                                        <option key={i} value={i}>
-                                            {role}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="password"
+                            name="password"
+                            value={data.password}
+                            className="form-input"
+                            autoComplete="new-password"
+                            handleChange={onHandleChange}
+                            placeholder="Password"
+                            required
+                        />
+                        <InputError
+                            message={errors.password}
+                            className="mt-2"
+                        />
+                    </div>
 
-                        <div>
-                            <span></span>
-                            <TextInput
-                                type="password"
-                                name="password"
-                                value={data.password}
-                                className="form-input"
-                                autoComplete="new-password"
-                                handleChange={onHandleChange}
-                                placeholder="Password"
-                                required
-                            />
-                            <InputError
-                                message={errors.password}
-                                className="mt-2"
-                            />
-                        </div>
+                    <div>
+                        <span></span>
+                        <TextInput
+                            type="password"
+                            name="password_confirmation"
+                            value={data.password_confirmation}
+                            className="form-input"
+                            handleChange={onHandleChange}
+                            placeholder="Confirm Password"
+                            required
+                        />
+                        <InputError
+                            message={errors.password_confirmation}
+                            className="mt-2"
+                        />
+                    </div>
 
-                        <div>
-                            <span></span>
-                            <TextInput
-                                type="password"
-                                name="password_confirmation"
-                                value={data.password_confirmation}
-                                className="form-input"
-                                handleChange={onHandleChange}
-                                placeholder="Confirm Password"
-                                required
-                            />
-                            <InputError
-                                message={errors.password_confirmation}
-                                className="mt-2"
-                            />
-                        </div>
-
-                        <div className="btn">
-                            <PrimaryButton processing={processing}>
-                                Sign up
-                            </PrimaryButton>
-                            <p>Already have an account?</p>
-                            <Link
-                                href={route("login")}
-                                className="underline text-sm text-gray-600 hover:text-gray-900"
-                            >
-                                Login
-                            </Link>
-                        </div>
-                    </form>
-                    <div className="soc-icons">
-                        <div className="or">or</div>
-                        <p>Sign up with social platforms</p>
-                        <div className="icons">
-                            <SocLinks />
-                            <a href="#">
-                                <i className="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#">
-                                <i className="fab fa-twitter"></i>
-                            </a>
-                            <a href="#">
-                                <i className="fab fa-google"></i>
-                            </a>
-                            <a href="#">
-                                <i className="fab fa-linkedin"></i>
-                            </a>
-                        </div>
+                    <div className="btn">
+                        <PrimaryButton processing={processing}>
+                            Sign up
+                        </PrimaryButton>
+                        <p>Already have an account?</p>
+                        <Link
+                            href={route("login")}
+                            className="underline text-sm text-gray-600 hover:text-gray-900"
+                        >
+                            Login
+                        </Link>
+                    </div>
+                </form>
+                <div className="soc-icons">
+                    <div className="or">or</div>
+                    <p>Sign up with social platforms</p>
+                    <div className="icons">
+                        <SocLinks />
+                        <a href="#">
+                            <i className="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i className="fab fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i className="fab fa-google"></i>
+                        </a>
+                        <a href="#">
+                            <i className="fab fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
             </div>
+
         </main>
         // {/* </GuestLayout> */}
     );
