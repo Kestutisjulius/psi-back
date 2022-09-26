@@ -83,18 +83,6 @@ export default function Register({ roles }) {
 
                     <div>
                         <span></span>
-                        <div className="form-input">
-                            <label for="role" >Choose role:</label>
-                            <select name="role" id="role" value={data.role} onChange={onHandleChange}>
-                                {
-                                    roles.map((role, i) => <option key={i} value={i + 1} >{role}</option>)
-                                }
-                            </select>
-
-                        </div>
-                    </div>
-                    <div>
-                        <span></span>
                         <div class="form-input">
                             <label className="role" for="role">Choose role:</label>
                             <select className="role" name="role" id="role">
