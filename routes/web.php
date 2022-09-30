@@ -10,9 +10,9 @@ Route::get('/', function () {
              })->name('main');
 
  
-Route::get('/profile', function () {
-            return Inertia::render('Profile');
-        });
+// Route::get('/user', function () {
+//             return Inertia::render('Profile');
+//         });
 
        
 

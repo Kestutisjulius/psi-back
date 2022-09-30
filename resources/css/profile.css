@@ -223,3 +223,8 @@ textarea {
     height: 7px;
     border-radius: 50%;
 }
+.line {
+    width: 95%;
+    border-top: 1px solid #b2bbca;
+    margin-top: 10px;
+}

@@ -8,13 +8,46 @@ import SvgPortfolio from "@/components/SvgPortfolio";
 import SvgProfile from "@/components/SvgProfile";
 import SvgSearch from "@/components/SvgSearcj";
 import SvgSettings from "@/components/SvgSettings";
+import SvgKey from "@/components/SvgKey";
 import SvgUser from "@/components/SvgUser";
+import TextInput from "@/components/TextInput";
+import PrimaryButton from "@/components/PrimaryButton";
+import { useForm } from '@inertiajs/inertia-react';
 
 function Profile({ user }) {
+
+  const {
+    setData,
+    post,
+    processing,
+    errors,
+  } = useForm({
+    name: '',
+    last_name: '',
+    username: '',
+    email: '',
+    phone_n: '',
+  });
+
+  const onHandleChange = (event) => {
+    setData(
+      event.target.name,
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value
+    );
+  };
+
+  const submit = (e) => {
+    e.preventDefault();
+
+    post(route("register"));
+  };
+
   return (
     <div className="prof-flex">
       <div className="prof-nav">
-        <p>KristianWorkSpace</p>
+        <p>{user.name}WorkSpace</p>
         <div className="svg">
           <SvgUser className='user' />
         </div>
@@ -34,6 +67,9 @@ function Profile({ user }) {
           <li><span>
             <SvgSettings className='menu' />
           </span> Account Settings</li>
+          <li><span>
+            <SvgKey className='menu' />
+          </span> Password</li>
           <li className="billing"><span>
             <SvgBilling className='menu' />
           </span>Billing</li>
@@ -52,7 +88,7 @@ function Profile({ user }) {
               <span className="active"></span>
               <SvgNotifications className='menu' />
             </div>
-            <img src="./img/Cristian.jpg" alt="photo" />
+            <img src="./img/eye.png" alt="photo" />
             <p>User</p>
             <div className="arrow-down">
               <SvgArrowDown className='menu' />
@@ -67,26 +103,50 @@ function Profile({ user }) {
           This information will be displayed publicly so be careful what you share.
         </p>
         <div className="prof-form">
-          <form action="">
+          <form
+            onSubmit={submit}
+          >
             <p>Account Settings</p>
             <div className="info-row">
               <label htmlFor="name">
                 First name
               </label>
-              <input type="text" name="name" id="name" />
+              <TextInput
+                type="text"
+                name="name"
+                value={user.name}
+                handleChange={onHandleChange}
+              />
               <label htmlFor="last_name">
                 Last name
               </label>
-              <input type="text" name="last_name" id="last_name" />
+              <TextInput
+                type="text"
+                name="last_name"
+                value={user.last_name}
+                handleChange={onHandleChange}
+              />
             </div>
-            <label htmlFor="username">Username</label>
             <div className="info-row">
-              <input type="text" name="username" id="username" />
+              <label htmlFor="username">Username</label>
+              <TextInput
+                type="text"
+                name="username"
+                value={user.username}
+                handleChange={onHandleChange}
+              />
+              <label htmlFor="username">Slogan</label>
+              <TextInput
+                type="text"
+                name="slogan"
+                value={user.slogan}
+                handleChange={onHandleChange}
+              />
             </div>
             <div className="user-photo">
               <div className="photo">
                 <label htmlFor="photo">Photo</label>
-                <img src="./img/Cristian.jpg" alt="photo" />
+                <img src="./img/eye.png" alt="photo" />
               </div>
               <input type="file" name="photo" id="photo" />
               <button>Remove</button>
@@ -102,30 +162,82 @@ function Profile({ user }) {
               <label htmlFor="url">URL</label>
               <input type="url" name="url" id="url" />
             </div>
+            <div className="info-row">
+              <label htmlFor="job_id">
+                Job Id
+              </label>
+              <TextInput
+                type="text"
+                name="jpb_id"
+                value={user.job_id}
+                handleChange={onHandleChange}
+              />
+              <label htmlFor="degree">
+                Degree
+              </label>
+              <TextInput
+                type="text"
+                name="degree"
+                value={user.degree}
+                handleChange={onHandleChange}
+              />
+            </div>
+            <div className="bio-row">
+              <label htmlFor="work_experience">Work Experience</label>
+              <textarea name="work_experience"></textarea>
+              <p className="fade-text">
+                Brief description of your work experience.
+              </p>
+            </div>
+            <div className="line"></div>
             <p>Personal Information</p>
             <p className="fade-text">This information will be displayed publicly so be careful what you share.</p>
             <div className="info-row">
               <label htmlFor="email">
                 Email
               </label>
-              <input type="email" name="email" id="email" />
+              <TextInput
+                type="email"
+                name="email"
+                value={user.email}
+                handleChange={onHandleChange}
+              />
               <label htmlFor="phone">
                 Phone
               </label>
-              <input type="tel" name="phone" id="phone" />
+              <TextInput
+                type="tel"
+                name="phone"
+                value={user.phone_n}
+                handleChange={onHandleChange}
+              />
             </div>
             <div className="info-row">
               <label htmlFor="company">
                 Company
               </label>
-              <input type="text" name="company" id="company" />
+              <TextInput
+                type="text"
+                name="company"
+                value={user.company}
+                handleChange={onHandleChange}
+              />
               <label htmlFor="location">
                 Location
               </label>
-              <input type="text" name="location" id="location" />
+              <TextInput
+                type="text"
+                name="location"
+                value={user.location}
+                handleChange={onHandleChange}
+              />
             </div>
+            <p className="fade-text">This account was created on {user.first_ip}.</p>
+            <div className="line"></div>
             <div className="btns">
-              <button>Update</button>
+              <PrimaryButton
+                processing={processing}
+              >Update</PrimaryButton>
               <button>Cancel</button>
             </div>
           </form>
