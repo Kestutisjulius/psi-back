@@ -17,37 +17,39 @@ import { useForm } from '@inertiajs/inertia-react';
 function Profile({ user }) {
 
   const {
+    data,
     setData,
+    // errors,
     post,
-    processing,
-    errors,
+    processing
   } = useForm({
-    name: '',
-    last_name: '',
-    username: '',
-    email: '',
-    phone_n: '',
+    name: user.name,
+    last_name: user.last_name,
+    username: user.username,
+    slogan: user.slogan,
+    article: user.article,
+    degree: user.degree,
+    work_experience: user.work_experience,
+    job_id: user.job_id,
+    email: user.email,
+    phone_n: user.phone_n,
+    address: user.address,
+    first_ip: user.first_ip,
   });
 
-  const onHandleChange = (event) => {
-    setData(
-      event.target.name,
-      event.target.type === "checkbox"
-        ? event.target.checked
-        : event.target.value
-    );
+  const onHandleChange = (e) => {
+    setData(e.target.name, e.target.value);
   };
 
   const submit = (e) => {
     e.preventDefault();
-
-    post(route("register"));
+    post(route("profile"));
   };
 
   return (
     <div className="prof-flex">
       <div className="prof-nav">
-        <p>{user.name}WorkSpace</p>
+        <p>{data.name}WorkSpace</p>
         <div className="svg">
           <SvgUser className='user' />
         </div>
@@ -103,9 +105,7 @@ function Profile({ user }) {
           This information will be displayed publicly so be careful what you share.
         </p>
         <div className="prof-form">
-          <form
-            onSubmit={submit}
-          >
+          <form onSubmit={submit}>
             <p>Account Settings</p>
             <div className="info-row">
               <label htmlFor="name">
@@ -114,7 +114,7 @@ function Profile({ user }) {
               <TextInput
                 type="text"
                 name="name"
-                value={user.name}
+                value={data.name}
                 handleChange={onHandleChange}
               />
               <label htmlFor="last_name">
@@ -123,7 +123,7 @@ function Profile({ user }) {
               <TextInput
                 type="text"
                 name="last_name"
-                value={user.last_name}
+                value={data.last_name}
                 handleChange={onHandleChange}
               />
             </div>
@@ -132,14 +132,14 @@ function Profile({ user }) {
               <TextInput
                 type="text"
                 name="username"
-                value={user.username}
+                value={data.username}
                 handleChange={onHandleChange}
               />
               <label htmlFor="username">Slogan</label>
               <TextInput
                 type="text"
                 name="slogan"
-                value={user.slogan}
+                value={data.slogan}
                 handleChange={onHandleChange}
               />
             </div>
@@ -152,10 +152,10 @@ function Profile({ user }) {
               <button>Remove</button>
             </div>
             <div className="bio-row">
-              <label htmlFor="bio">About</label>
+              <label htmlFor="bio">Article (about)</label>
               <textarea name="bio" id="bio"></textarea>
               <p className="fade-text">
-                Brief description for your profile.URLs are hyperlinked.
+                Brief description for your profile or article to present you.URLs are hyperlinked.
               </p>
             </div>
             <div className="info-row url">
@@ -169,7 +169,7 @@ function Profile({ user }) {
               <TextInput
                 type="text"
                 name="jpb_id"
-                value={user.job_id}
+                value={data.job_id}
                 handleChange={onHandleChange}
               />
               <label htmlFor="degree">
@@ -178,7 +178,7 @@ function Profile({ user }) {
               <TextInput
                 type="text"
                 name="degree"
-                value={user.degree}
+                value={data.degree}
                 handleChange={onHandleChange}
               />
             </div>
@@ -199,7 +199,7 @@ function Profile({ user }) {
               <TextInput
                 type="email"
                 name="email"
-                value={user.email}
+                value={data.email}
                 handleChange={onHandleChange}
               />
               <label htmlFor="phone">
@@ -208,7 +208,7 @@ function Profile({ user }) {
               <TextInput
                 type="tel"
                 name="phone"
-                value={user.phone_n}
+                value={data.phone_n}
                 handleChange={onHandleChange}
               />
             </div>
@@ -219,20 +219,20 @@ function Profile({ user }) {
               <TextInput
                 type="text"
                 name="company"
-                value={user.company}
+                value={data.company}
                 handleChange={onHandleChange}
               />
-              <label htmlFor="location">
-                Location
+              <label htmlFor="address">
+                Address
               </label>
               <TextInput
                 type="text"
-                name="location"
-                value={user.location}
+                name="address"
+                value={data.address}
                 handleChange={onHandleChange}
               />
             </div>
-            <p className="fade-text">This account was created on {user.first_ip}.</p>
+            <p className="fade-text">This account was created on <i>September 29, 2022, 8:35:40 PM</i> {data.first_ip}.</p>
             <div className="line"></div>
             <div className="btns">
               <PrimaryButton

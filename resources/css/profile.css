@@ -14,6 +14,8 @@
     box-shadow: 4px 8px 16px #dad7d7fa;
 }
 .prof-nav p {
+    word-break: break-all;
+    text-align: center;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 40px;
