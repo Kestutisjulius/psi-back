@@ -28,13 +28,29 @@ class UserController extends Controller
     // {
     //     return Inertia::render('RegPage', ['roles' => User::ROLES]);
     // }
-    public function profile(){
+    public function settings(){
        $id = Auth::user()->id;
        
        $user = User::where('id', $id)
                     ->first();
 
+        return Inertia::render('Settings', ['user' => $user]);
+    }
+    public function update(Request $request, User $user)
+    {
+        $user->name = $request->name; 
+        $user->last_name = $request->last_name; 
+        $user->username = $request->username; 
+        $user->slogan = $request->slogan; 
+        $user->article = $request->article; 
+        $user->degree = $request->degree; 
+        $user->work_experience = $request->work_experience; 
+        $user->job_id = $request->work_job_id; 
+        $user->email = $request->email; 
+        $user->phone_n = $request->phone_n; 
+        $user->address = $request->address; 
+        $user->first_ip = $request->first_ip; 
+        $user->save();
         return Inertia::render('Profile', ['user' => $user]);
     }
-
 }

@@ -12,7 +12,8 @@ import SvgKey from "@/components/SvgKey";
 import SvgUser from "@/components/SvgUser";
 import TextInput from "@/components/TextInput";
 import PrimaryButton from "@/components/PrimaryButton";
-import { useForm } from '@inertiajs/inertia-react';
+import { useForm, Link } from '@inertiajs/inertia-react';
+import SvgLogout from "@/components/SvgLogout";
 
 function Profile({ user }) {
 
@@ -20,7 +21,7 @@ function Profile({ user }) {
     data,
     setData,
     // errors,
-    post,
+    put,
     processing
   } = useForm({
     name: user.name,
@@ -43,7 +44,7 @@ function Profile({ user }) {
 
   const submit = (e) => {
     e.preventDefault();
-    post(route("profile"));
+    put(route("user-update", user));
   };
 
   return (
@@ -75,6 +76,12 @@ function Profile({ user }) {
           <li className="billing"><span>
             <SvgBilling className='menu' />
           </span>Billing</li>
+          <Link
+            href={route('logout')} method='post' className='plain'>
+            <li className="logout">
+              <span><SvgLogout className='menu' />
+              </span>Logout</li>
+          </Link>
         </ul>
       </div>
       <div className="prof-info">
@@ -152,8 +159,8 @@ function Profile({ user }) {
               <button>Remove</button>
             </div>
             <div className="bio-row">
-              <label htmlFor="bio">Article (about)</label>
-              <textarea name="bio" id="bio"></textarea>
+              <label htmlFor="article">Article (about)</label>
+              <textarea name="article" value={data.article} handleChange={onHandleChange}></textarea>
               <p className="fade-text">
                 Brief description for your profile or article to present you.URLs are hyperlinked.
               </p>
@@ -184,7 +191,7 @@ function Profile({ user }) {
             </div>
             <div className="bio-row">
               <label htmlFor="work_experience">Work Experience</label>
-              <textarea name="work_experience"></textarea>
+              <textarea name="work_experience" value={data.work_experience} handleChange={onHandleChange}></textarea>
               <p className="fade-text">
                 Brief description of your work experience.
               </p>
@@ -207,7 +214,7 @@ function Profile({ user }) {
               </label>
               <TextInput
                 type="tel"
-                name="phone"
+                name="phone_n"
                 value={data.phone_n}
                 handleChange={onHandleChange}
               />

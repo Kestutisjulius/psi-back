@@ -230,3 +230,7 @@ textarea {
     border-top: 1px solid #b2bbca;
     margin-top: 10px;
 }
+.plain {
+    color: #000;
+    text-decoration: none;
+}

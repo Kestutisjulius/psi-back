@@ -9,10 +9,9 @@ Route::get('/', function () {
             return Inertia::render('Main');
              })->name('main');
 
-// Route::get('/user', function () {
-//             return Inertia::render('Profile');
-//         });
        
-Route::get('/user', [UserController::class, 'profile'])->middleware(['auth', 'verified'])->name('user-profile');
+Route::get('/account', [UserController::class, 'settings'])->middleware(['auth', 'verified'])->name('user-settings');
+
+Route::put('/user/{user}', [UserController::class, 'update'])->name('user-update');
 
 require __DIR__.'/auth.php';
