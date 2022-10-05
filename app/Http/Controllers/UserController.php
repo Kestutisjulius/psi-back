@@ -36,6 +36,16 @@ class UserController extends Controller
 
         return Inertia::render('Settings', ['user' => $user]);
     }
+
+    public function profile(){
+       $id = Auth::user()->id;
+       
+       $user = User::where('id', $id)
+                    ->first();
+
+        return Inertia::render('Profile', ['user' => $user]);
+    }
+
     public function update(Request $request, User $user)
     {
         $user->name = $request->name; 

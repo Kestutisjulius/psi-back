@@ -7,9 +7,9 @@
 }
 .prof-nav {
     width: 20%;
-    min-width: 145px;
+    min-width: 150px;
     font-display: flex;
-    padding: 20px 0 0 20px;
+    padding: 20px 0 10px 20px;
     background-color: #fdfdff;
     box-shadow: 4px 8px 16px #dad7d7fa;
 }
@@ -233,4 +233,42 @@ textarea {
 .plain {
     color: #000;
     text-decoration: none;
+}
+.logout {
+    padding-left: 3px;
+}
+
+/* Profile */
+.list .info-row {
+    gap: 10px;
+    margin: 0;
+    padding: 0 0 10px 5px;
+    line-height: 16px;
+}
+
+.list .line {
+    margin: 0 0 10px 5px;
+}
+
+.info-row .photo {
+    width: 100px;
+}
+.info-row.photo {
+    min-height: 100px;
+    align-content: flex-start;
+}
+.list .info-row p:first-child {
+    font-style: italic;
+    font-size: 14px;
+    width: 20%;
+    min-width: 100px;
+    text-align: right;
+}
+.list .info-row p:last-child {
+    font-weight: 500;
+    width: 80%;
+    justify-items: flex-end;
+}
+.fade-text {
+    margin-bottom: 10px;
 }

@@ -15,7 +15,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import { useForm, Link } from '@inertiajs/inertia-react';
 import SvgLogout from "@/components/SvgLogout";
 
-function Profile({ user }) {
+function Settings({ user }) {
 
   const {
     data,
@@ -58,18 +58,26 @@ function Profile({ user }) {
           <li><span>
             <SvgDashboard className='menu' />
           </span> Dashboard</li>
-          <li><span>
-            <SvgProfile className='menu' />
-          </span> Profile</li>
+          <Link
+            href={route('user-profile')}
+            className='plain'>
+            <li><span>
+              <SvgProfile className='menu' />
+            </span> Profile</li>
+          </Link>
           <li><span>
             <SvgPortfolio className='menu' />
           </span> Job feed</li>
           <li><span>
             <SvgMark className='menu' />
           </span> Save Jobs</li>
-          <li><span>
-            <SvgSettings className='menu' />
-          </span> Account Settings</li>
+          <Link
+            href={route('user-settings')}
+            className='plain'>
+            <li><span>
+              <SvgSettings className='menu' />
+            </span> Account Settings</li>
+          </Link>
           <li><span>
             <SvgKey className='menu' />
           </span> Password</li>
@@ -254,4 +262,4 @@ function Profile({ user }) {
   )
 }
 
-export default Profile;
+export default Settings;
