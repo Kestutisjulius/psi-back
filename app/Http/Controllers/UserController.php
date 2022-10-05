@@ -38,6 +38,7 @@ class UserController extends Controller
     }
 
     public function profile(){
+        
        $id = Auth::user()->id;
        
        $user = User::where('id', $id)
@@ -48,6 +49,8 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
+
+
         $user->name = $request->name; 
         $user->last_name = $request->last_name; 
         $user->username = $request->username; 

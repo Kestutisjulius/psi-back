@@ -168,7 +168,10 @@ function Settings({ user }) {
             </div>
             <div className="bio-row">
               <label htmlFor="article">Article (about)</label>
-              <textarea name="article" value={data.article} handleChange={onHandleChange}></textarea>
+              <TextInput 
+              name="article" 
+              value={data.article} 
+              handleChange={onHandleChange}/>
               <p className="fade-text">
                 Brief description for your profile or article to present you.URLs are hyperlinked.
               </p>
