@@ -29,12 +29,16 @@ function Settings({ user }) {
     username: user.username,
     slogan: user.slogan,
     article: user.article,
+    url: user.url,
     degree: user.degree,
     work_experience: user.work_experience,
     job_id: user.job_id,
     email: user.email,
     phone_n: user.phone_n,
     address: user.address,
+    languages: user.languages,
+    company: user.company,
+    fav_company: user.fav_company,
     first_ip: user.first_ip,
   });
 
@@ -168,21 +172,26 @@ function Settings({ user }) {
             </div>
             <div className="bio-row">
               <label htmlFor="article">Article (about)</label>
-              <TextInput 
-              name="article" 
-              value={data.article} 
-              handleChange={onHandleChange}/>
+              <TextInput
+                className="textarea"
+                name="article"
+                value={data.article}
+                handleChange={onHandleChange} />
               <p className="fade-text">
                 Brief description for your profile or article to present you.URLs are hyperlinked.
               </p>
             </div>
             <div className="info-row url">
-              <label htmlFor="url">URL</label>
-              <input type="url" name="url" id="url" />
+              <label htmlFor="url">References (URL)</label>
+              <TextInput
+                type="text"
+                name="url"
+                value={data.url}
+                handleChange={onHandleChange} />
             </div>
             <div className="info-row">
               <label htmlFor="job_id">
-                Job Id
+                Job Id (Profession)
               </label>
               <TextInput
                 type="text"
@@ -191,7 +200,7 @@ function Settings({ user }) {
                 handleChange={onHandleChange}
               />
               <label htmlFor="degree">
-                Degree
+                Degree (Qualification)
               </label>
               <TextInput
                 type="text"
@@ -202,7 +211,9 @@ function Settings({ user }) {
             </div>
             <div className="bio-row">
               <label htmlFor="work_experience">Work Experience</label>
-              <textarea name="work_experience" value={data.work_experience} handleChange={onHandleChange}></textarea>
+              <TextInput
+                className='textarea'
+                name="work_experience" value={data.work_experience} handleChange={onHandleChange}></TextInput>
               <p className="fade-text">
                 Brief description of your work experience.
               </p>
@@ -231,15 +242,6 @@ function Settings({ user }) {
               />
             </div>
             <div className="info-row">
-              <label htmlFor="company">
-                Company
-              </label>
-              <TextInput
-                type="text"
-                name="company"
-                value={data.company}
-                handleChange={onHandleChange}
-              />
               <label htmlFor="address">
                 Address
               </label>
@@ -247,6 +249,35 @@ function Settings({ user }) {
                 type="text"
                 name="address"
                 value={data.address}
+                handleChange={onHandleChange}
+              />
+              <label htmlFor="languages">
+                Languages
+              </label>
+              <TextInput
+                type="text"
+                name="languages"
+                value={data.languages}
+                handleChange={onHandleChange}
+              />
+            </div>
+            <div className="info-row company">
+              <label htmlFor="company">
+                Previous (current) Company(-ies)
+              </label>
+              <TextInput
+                type="text"
+                name="company"
+                value={data.company}
+                handleChange={onHandleChange}
+              />
+              <label htmlFor="fav_company">
+                Favourite Company (You'd like to work for)
+              </label>
+              <TextInput
+                type="text"
+                name="fav_company"
+                value={data.fav_company}
                 handleChange={onHandleChange}
               />
             </div>

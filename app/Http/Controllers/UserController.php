@@ -56,12 +56,16 @@ class UserController extends Controller
         $user->username = $request->username; 
         $user->slogan = $request->slogan; 
         $user->article = $request->article; 
+        $user->url = $request->url; 
         $user->degree = $request->degree; 
         $user->work_experience = $request->work_experience; 
         $user->job_id = $request->work_job_id; 
         $user->email = $request->email; 
         $user->phone_n = $request->phone_n; 
         $user->address = $request->address; 
+        $user->languages = $request->languages; 
+        $user->company = $request->company; 
+        $user->fav_company = $request->fav_company; 
         $user->first_ip = $request->first_ip; 
         $user->save();
         return Inertia::render('Profile', ['user' => $user]);
