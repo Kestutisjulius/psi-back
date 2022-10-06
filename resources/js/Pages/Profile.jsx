@@ -156,7 +156,7 @@ function Profile({ user }) {
           <p>Favourite Company (you'd like to work for):</p>
           <p>{user.fav_company ? user.fav_company : <div className="no-info">no information specified</div>}</p>
         </div>
-        <p className="fade-text">This account was created on <i>September 29, 2022, 8:35:40 PM</i> {user.first_ip}.</p>
+        <p className="fade-text first-ip">This account was created on <i>September 29, 2022, 8:35:40 PM</i> {user.first_ip}.</p>
       </div>
     </div >
   )
