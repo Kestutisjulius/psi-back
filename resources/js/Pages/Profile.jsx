@@ -73,7 +73,7 @@ function Profile({ user }) {
               <span className="active"></span>
               <SvgNotifications className='menu' />
             </div>
-            <img src="./img/eye.png" alt="photo" />
+            <img src="../img/eye.png" alt="photo" />
             <p>User</p>
             <div className="arrow-down">
               <SvgArrowDown className='menu' />
@@ -106,23 +106,23 @@ function Profile({ user }) {
         <div className="info-row photo">
           <p>Photo:</p>
           <div className="photo">
-            <img src="./img/eye.png" alt="photo" />
+            <img src="../img/eye.png" alt="photo" />
           </div>
         </div>
         <div className="info-row">
-          <p>Your Article:</p>
+          <p>Article:</p>
           <p>{user.article ? user.article : <div className="no-info">no information specified</div>}</p>
         </div>
         <div className="info-row">
           <p>References(URL):</p>
-          <p>{user.url ? user.url : <div className="no-info">no information specified</div>}</p>
+          <p className="ref">{user.url ? user.url : <div className="no-info">no information specified</div>}</p>
         </div>
         <div className="info-row">
           <p>Job Id:</p>
           <p>{user.job_id ? user.job_id : <div className="no-info">no information specified</div>}</p>
         </div>
         <div className="info-row">
-          <p>Your Degree:</p>
+          <p>Degree:</p>
           <p>{user.degree ? user.degree : <div className="no-info">no information specified</div>}</p>
         </div>
         <div className="info-row">
