@@ -8,13 +8,17 @@ import SvgPortfolio from "@/components/SvgPortfolio";
 import SvgProfile from "@/components/SvgProfile";
 import SvgSearch from "@/components/SvgSearcj";
 import SvgSettings from "@/components/SvgSettings";
+import SvgKey from "@/components/SvgKey";
 import SvgUser from "@/components/SvgUser";
+import { Link } from '@inertiajs/inertia-react';
+import SvgLogout from "@/components/SvgLogout";
 
 function Profile({ user }) {
+
   return (
     <div className="prof-flex">
       <div className="prof-nav">
-        <p>KristianWorkSpace</p>
+        <p>{user.name}WorkSpace</p>
         <div className="svg">
           <SvgUser className='user' />
         </div>
@@ -22,24 +26,41 @@ function Profile({ user }) {
           <li><span>
             <SvgDashboard className='menu' />
           </span> Dashboard</li>
-          <li><span>
-            <SvgProfile className='menu' />
-          </span> Profile</li>
+          <Link
+            href={route('user-profile')}
+            className='plain'>
+            <li><span>
+              <SvgProfile className='menu' />
+            </span> Profile</li>
+          </Link>
           <li><span>
             <SvgPortfolio className='menu' />
           </span> Job feed</li>
           <li><span>
             <SvgMark className='menu' />
           </span> Save Jobs</li>
+          <Link
+            href={route('user-settings')}
+            className='plain'>
+            <li><span>
+              <SvgSettings className='menu' />
+            </span> Account Settings</li>
+          </Link>
           <li><span>
-            <SvgSettings className='menu' />
-          </span> Account Settings</li>
+            <SvgKey className='menu' />
+          </span> Password</li>
           <li className="billing"><span>
             <SvgBilling className='menu' />
           </span>Billing</li>
+          <Link
+            href={route('logout')} method='post' className='plain'>
+            <li className="logout">
+              <span><SvgLogout className='menu' />
+              </span>Logout</li>
+          </Link>
         </ul>
       </div>
-      <div className="prof-info">
+      <div className="prof-info list">
         <div className="top-row">
           <div className="search">
             <input type="search" name="search" id="search" placeholder="Search" />
@@ -52,7 +73,7 @@ function Profile({ user }) {
               <span className="active"></span>
               <SvgNotifications className='menu' />
             </div>
-            <img src="./img/Cristian.jpg" alt="photo" />
+            <img src="../img/eye.png" alt="photo" />
             <p>User</p>
             <div className="arrow-down">
               <SvgArrowDown className='menu' />
@@ -60,78 +81,84 @@ function Profile({ user }) {
           </div>
         </div>
         <div className="top-heading">
-          <p>Account Settings</p>
+          <p>Profile</p>
         </div>
-        <p>Profile</p>
+        <p>Profile information</p>
         <p className="fade-text">
-          This information will be displayed publicly so be careful what you share.
+          To change your profile information go to Account settings.
         </p>
-        <div className="prof-form">
-          <form action="">
-            <p>Account Settings</p>
-            <div className="info-row">
-              <label htmlFor="name">
-                First name
-              </label>
-              <input type="text" name="name" id="name" />
-              <label htmlFor="last_name">
-                Last name
-              </label>
-              <input type="text" name="last_name" id="last_name" />
-            </div>
-            <label htmlFor="username">Username</label>
-            <div className="info-row">
-              <input type="text" name="username" id="username" />
-            </div>
-            <div className="user-photo">
-              <div className="photo">
-                <label htmlFor="photo">Photo</label>
-                <img src="./img/Cristian.jpg" alt="photo" />
-              </div>
-              <input type="file" name="photo" id="photo" />
-              <button>Remove</button>
-            </div>
-            <div className="bio-row">
-              <label htmlFor="bio">About</label>
-              <textarea name="bio" id="bio"></textarea>
-              <p className="fade-text">
-                Brief description for your profile.URLs are hyperlinked.
-              </p>
-            </div>
-            <div className="info-row url">
-              <label htmlFor="url">URL</label>
-              <input type="url" name="url" id="url" />
-            </div>
-            <p>Personal Information</p>
-            <p className="fade-text">This information will be displayed publicly so be careful what you share.</p>
-            <div className="info-row">
-              <label htmlFor="email">
-                Email
-              </label>
-              <input type="email" name="email" id="email" />
-              <label htmlFor="phone">
-                Phone
-              </label>
-              <input type="tel" name="phone" id="phone" />
-            </div>
-            <div className="info-row">
-              <label htmlFor="company">
-                Company
-              </label>
-              <input type="text" name="company" id="company" />
-              <label htmlFor="location">
-                Location
-              </label>
-              <input type="text" name="location" id="location" />
-            </div>
-            <div className="btns">
-              <button>Update</button>
-              <button>Cancel</button>
-            </div>
-          </form>
+        <div className="info-row">
+          <p>First name:</p>
+          <p>{user.name ? user.name : <div className="no-info">no information specified</div>}</p>
         </div>
+        <div className="info-row">
+          <p>Last name:</p>
+          <p>{user.last_name ? user.last_name : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Username:</p>
+          <p>{user.username ? user.username : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Slogan:</p>
+          <p>{user.slogan ? user.slogan : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row photo">
+          <p>Photo:</p>
+          <div className="photo">
+            <img src="../img/eye.png" alt="photo" />
+          </div>
+        </div>
+        <div className="info-row">
+          <p>Article:</p>
+          <p>{user.article ? user.article : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>References(URL):</p>
+          <p className="ref">{user.url ? user.url : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Job Id:</p>
+          <p>{user.job_id ? user.job_id : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Degree:</p>
+          <p>{user.degree ? user.degree : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Work experience:</p>
+          <p>{user.work_experience ? user.work_experience : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="line"></div>
+        <p>Personal Information</p>
+        <p className="fade-text">To change your personal information go to Account settings.</p>
+        <div className="info-row">
+          <p>Email:</p>
+          <p>{user.email ? user.email : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Phone nr:</p>
+          <p>{user.phone_n ? user.phone_n : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Address:</p>
+          <p>{user.address ? user.address : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Languages:</p>
+          <p>{user.languages ? user.languages : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Previous (current) Company:</p>
+          <p>{user.company ? user.company : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <div className="info-row">
+          <p>Favourite Company (you'd like to work for):</p>
+          <p>{user.fav_company ? user.fav_company : <div className="no-info">no information specified</div>}</p>
+        </div>
+        <p className="fade-text first-ip">This account was created on <i>September 29, 2022, 8:35:40 PM</i> {user.first_ip}.</p>
       </div>
-    </div>
+    </div >
   )
 }
 

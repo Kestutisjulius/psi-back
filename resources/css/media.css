@@ -54,7 +54,20 @@
         width: 100%;
     }
     div.prof-flex {
-        width: 95%;
+        width: 98%;
         margin: 3px auto;
+    }
+    div.prof-nav {
+        min-width: 140px;
+        padding-left: 10px;
+    }
+    div.info-row {
+        max-width: 90%;
+    }
+    div.info-row > p {
+        font-size: 95%;
+    }
+    .info-row p:first-child {
+        word-break: break-all;
     }
 }

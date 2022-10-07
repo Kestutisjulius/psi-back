@@ -21,16 +21,16 @@ export default function TextInput({
     }, []);
 
     return (
-            <input
-                type={type}
-                name={name}
-                value={value}
-                className={className}
-                ref={input}
-                autoComplete={autoComplete}
-                required={required}
-                placeholder={placeholder}
-                onChange={(e) => handleChange(e)}
-            />
+        <input
+            type={type}
+            name={name}
+            value={value}
+            className={className}
+            ref={input}
+            autoComplete={autoComplete}
+            required={required}
+            placeholder={placeholder}
+            onChange={(e) => handleChange(e)}
+        />
     );
 }
