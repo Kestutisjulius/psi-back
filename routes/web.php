@@ -18,4 +18,7 @@ Route::put('/user/{user}', [UserController::class, 'update'])->name('user-update
 Route::get('/profile', [UserController::class, 'profile'])->middleware(['auth', 'verified'])
 ->name('user-profile');
 
+Route::get('/jobfeed', [UserController::class, 'jobfeed'])->middleware(['auth', 'verified'])
+->name('user-jobfeed');
+
 require __DIR__.'/auth.php';

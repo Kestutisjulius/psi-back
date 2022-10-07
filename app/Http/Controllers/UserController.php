@@ -47,6 +47,16 @@ class UserController extends Controller
         return Inertia::render('Profile', ['user' => $user]);
     }
 
+    public function jobfeed(){
+        
+       $id = Auth::user()->id;
+       
+       $user = User::where('id', $id)
+                    ->first();
+
+        return Inertia::render('JobFeed', ['user' => $user]);
+    }
+
     public function update(Request $request, User $user)
     {
         $user->name = $request->name; 

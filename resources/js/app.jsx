@@ -6,6 +6,7 @@ import '../css/main.css';
 import '../css/media.css';
 import '../css/register.css';
 import '../css/settings.css';
+import '../css/jobFeed.css';
 
 import React from 'react';
 import { render } from 'react-dom';
