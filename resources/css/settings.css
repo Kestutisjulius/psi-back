@@ -101,13 +101,17 @@ p.fade-text {
 .prof-form .fade-text {
     margin-top: 0;
 }
-input {
+input,
+.textarea {
     width: 45%;
     border: 1px solid #b2bbca;
     outline: none;
     border-radius: 5px;
-    resize: none;
     padding: 0 5px;
+}
+.textarea {
+    width: 95%;
+    resize: none;
 }
 .info-row.company label {
     height: 30px;
@@ -124,7 +128,8 @@ input {
 .search input {
     width: 100%;
 }
-input:focus-visible {
+input:focus-visible,
+.textarea:focus-visible {
     border: 3px solid #006dc05a;
     box-shadow: -2px 2px 2px #6aafd270;
     margin: -2px;
@@ -140,10 +145,6 @@ input:focus-visible {
 }
 .bio-row {
     max-height: fit-content;
-}
-.textarea {
-    width: 95%;
-    height: 50px;
 }
 .url input {
     width: 75%;

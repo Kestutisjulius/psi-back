@@ -127,7 +127,7 @@ function Profile({ user }) {
         </div>
         <div className="info-row">
           <p>Work experience:</p>
-          <p>{user.experience ? user.experience : <div className="no-info">no information specified</div>}</p>
+          <p>{user.work_experience ? user.work_experience : <div className="no-info">no information specified</div>}</p>
         </div>
         <div className="line"></div>
         <p>Personal Information</p>

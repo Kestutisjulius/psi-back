@@ -11,6 +11,7 @@ import SvgSettings from "@/components/SvgSettings";
 import SvgKey from "@/components/SvgKey";
 import SvgUser from "@/components/SvgUser";
 import TextInput from "@/components/TextInput";
+import TextArea from "@/components/Textarea";
 import PrimaryButton from "@/components/PrimaryButton";
 import { useForm, Link } from '@inertiajs/inertia-react';
 import SvgLogout from "@/components/SvgLogout";
@@ -172,7 +173,8 @@ function Settings({ user }) {
             </div>
             <div className="bio-row">
               <label htmlFor="article">Article (about)</label>
-              <TextInput
+              <TextArea
+                rows="3"
                 className="textarea"
                 name="article"
                 value={data.article}
@@ -195,7 +197,7 @@ function Settings({ user }) {
               </label>
               <TextInput
                 type="text"
-                name="jpb_id"
+                name="job_id"
                 value={data.job_id}
                 handleChange={onHandleChange}
               />
@@ -211,9 +213,10 @@ function Settings({ user }) {
             </div>
             <div className="bio-row">
               <label htmlFor="work_experience">Work Experience</label>
-              <TextInput
+              <TextArea
+                rows="3"
                 className='textarea'
-                name="work_experience" value={data.work_experience} handleChange={onHandleChange}></TextInput>
+                name="work_experience" value={data.work_experience} handleChange={onHandleChange} />
               <p className="fade-text">
                 Brief description of your work experience.
               </p>
